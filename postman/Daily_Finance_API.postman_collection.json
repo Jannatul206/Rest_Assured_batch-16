@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "daily-finance-api-collection",
+		"name": "Daily Finance API Collection",
+		"description": "Complete API collection for Daily Finance application including Authentication, User Management, and Cost Management endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register New User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"test\",\n    \"lastName\": \"testy2\",\n    \"email\": \"test404@gmail.com\",\n    \"password\": \"12345678\",\n    \"phoneNumber\": \"01905981893\",\n    \"address\": \"762 Derby Road\",\n    \"gender\": \"Female\",\n    \"termsAccepted\": true\n}"
+						},
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/auth/register",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@test.com\",\n    \"password\": \"admin123\"\n}"
+						},
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test404@gmail.com\",\n    \"password\": \"12345678\"\n}"
+						},
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Get User List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/user/users",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"user",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/user/{{userId}}",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Info",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"b57c964e-b68c-43b7-9a8b-69e7f3ebd988\",\n    \"firstName\": \"test\",\n    \"lastName\": \"testy24\",\n    \"email\": \"test404@gmail.com\",\n    \"password\": \"$2a$10$tcb7LCxXbFzPeNxGC.Ns5eejtfBLllOWddwDAcI/gHRu9WBTZqB8a\",\n    \"phoneNumber\": \"0190598189345\",\n    \"address\": \"762 Derby Road\",\n    \"gender\": \"Female\",\n    \"termsAccepted\": true,\n    \"role\": \"user\",\n    \"profileImage\": null,\n    \"resetPasswordToken\": null,\n    \"resetPasswordExpire\": null,\n    \"createdAt\": \"2025-12-06T06:30:40.000Z\",\n    \"updatedAt\": \"2025-12-06T06:30:40.000Z\"\n}"
+						},
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/user/{{userId}}",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cost Management",
+			"item": [
+				{
+					"name": "Get Item List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/costs",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"costs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"itemName\": \"test\",\n    \"quantity\": 1,\n    \"amount\": \"280\",\n    \"purchaseDate\": \"2025-12-06\",\n    \"month\": \"December\",\n    \"remarks\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/costs",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"costs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Item Name",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"{{costId}}\",\n    \"itemName\": \"test updated\",\n    \"quantity\": 1,\n    \"amount\": \"290\",\n    \"purchaseDate\": \"2025-12-06\",\n    \"month\": \"December\",\n    \"remarks\": \"test\",\n    \"userId\": \"{{userId}}\",\n    \"createdAt\": \"2025-12-06T06:37:55.000Z\",\n    \"updatedAt\": \"2025-12-06T06:37:55.000Z\"\n}"
+						},
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/costs/{{costId}}",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"costs",
+								"{{costId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{userToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://dailyfinanceapi.roadtocareer.net/api/costs/{{costId}}",
+							"protocol": "https",
+							"host": [
+								"dailyfinanceapi",
+								"roadtocareer",
+								"net"
+							],
+							"path": [
+								"api",
+								"costs",
+								"{{costId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "adminToken",
+			"value": ""
+		},
+		{
+			"key": "userToken",
+			"value": ""
+		},
+		{
+			"key": "userId",
+			"value": ""
+		},
+		{
+			"key": "costId",
+			"value": ""
+		}
+	]
+}
